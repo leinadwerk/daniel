@@ -32,12 +32,12 @@ void jogoforca()
     {
       
       printf("\n  _______       \n");
-	    printf(" |/      |       vidas: %d\n", vida);
-  	  printf(" |      %c%c%c  \n", (perder>=1?'(':' '), (perder>=1?'_':' '), (perder>=1?')':' '));
+      printf(" |/      |       vidas: %d\n", vida);
+      printf(" |      %c%c%c  \n", (perder>=1?'(':' '), (perder>=1?'_':' '), (perder>=1?')':' '));
       printf(" |      %c%c%c  \n", (perder>=3?'\\':' '), (perder>=2?'|':' '), (perder>=3?'/': ' '));
       printf(" |       %c     \n", (perder>=4?'|':' '));
-	    printf(" |      %c %c   \n", (perder>= 5?'/':' '), (perder>=5?'\\':' '));
-  	  printf(" |              \n");
+      printf(" |      %c %c   \n", (perder>= 5?'/':' '), (perder>=5?'\\':' '));
+      printf(" |              \n");
       printf("Palavra:%s", lacuna);
       printf("\nDigite uma letra:");
       scanf("%s", &letra[0]);
@@ -70,8 +70,8 @@ void jogoforca()
             printf(" |      %c%c%c  \n", (perder>=3?'\\':' '), (perder>=2?'|':' '), (perder>=3?'/': ' '));
             printf(" |       %c     \n", (perder>=4?'|':' '));
             printf(" |      %c %c   \n", (perder>= 4?'/':' '), (perder>=4?'\\':' '));
-        	printf(" |              \n");
-        	printf("Palavra:%s", lacuna);
+            printf(" |              \n");
+            printf("Palavra:%s", lacuna);
             printf("\nvocê perdeu.\n");
             printf("A palavra certa era %s", palavra);
             printf("\n\n-----------Fim-------------");
@@ -97,7 +97,7 @@ void jogoforca()
 		    printf("      .-\\:      /-.    \n");
 		    printf("     | (|:.     |) |    \n");
 		    printf("      '-|:.     |-'     \n");
-	    	printf("        \\::.    /      \n");
+	            printf("        \\::.    /      \n");
 		    printf("         '::. .'        \n");
 		    printf("           ) (          \n");
 		    printf("         _.' '._        \n");
@@ -146,7 +146,7 @@ void ajuda(){
 int main()
 {
  
-    int op, cat;
+    int op;
     for ( ; ; )
     {
         printf("\n---------------Welcome to the hangman game---------------\n");
