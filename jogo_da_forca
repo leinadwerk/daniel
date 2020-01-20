@@ -66,7 +66,7 @@ void jogoforca()
             printf("\nErros: %d", perder+1);
             printf("\n  _______       \n");
             printf(" |/      |       vidas: %d\n", vida);
-        	printf(" |      %c%c%c  \n", (perder>=1?'(':' '), (perder>=1?'_':' '), (perder>=1?')':' '));
+            printf(" |      %c%c%c  \n", (perder>=1?'(':' '), (perder>=1?'_':' '), (perder>=1?')':' '));
             printf(" |      %c%c%c  \n", (perder>=3?'\\':' '), (perder>=2?'|':' '), (perder>=3?'/': ' '));
             printf(" |       %c     \n", (perder>=4?'|':' '));
             printf(" |      %c %c   \n", (perder>= 4?'/':' '), (perder>=4?'\\':' '));
@@ -89,11 +89,11 @@ void jogoforca()
         {
           if (pontos==tam)
           {
-            printf("\nVocê acertou a palavra:%s", palavra);
-        	printf("\nParabéns, você ganhou!\n");
-            printf("Erros: %d\n\n", perder);
-    		printf("       ___________      \n");
-	    	printf("      '._==_==_=_.'     \n");
+                    printf("\nVocê acertou a palavra:%s", palavra);
+        	    printf("\nParabéns, você ganhou!\n");
+                    printf("Erros: %d\n\n", perder);
+    		    printf("       ___________      \n");
+	            printf("      '._==_==_=_.'     \n");
 		    printf("      .-\\:      /-.    \n");
 		    printf("     | (|:.     |) |    \n");
 		    printf("      '-|:.     |-'     \n");
