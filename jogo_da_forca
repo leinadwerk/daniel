@@ -1,0 +1,172 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+void jogoforca()
+{
+    int  perder = 0;
+    char lacuna [21]= "";
+    char letra [21];
+    char erros [20]= "";
+    int tam;
+    int vida = 5, retorna, pontos = 0;
+    int cont, cont2 = 0;
+    char banco[16][20]={"casa","azul", "amarelo", "verde", "vermelho", "preto", "rosa", "cachoro", "gato", "sapato", "rua", "rei", "rainha","roupas", "tecidos"};
+    int a,num=0;
+    char palavra[10];
+    srand(time(NULL));
+    num = rand() % 14;
+    for(a=0;a<10;a++){
+        palavra[a]=banco[num][a];
+    }
+
+    printf("a palavra eh: %s\n\n", palavra); 
+    
+    for (cont = 0; cont < strlen(palavra); cont++) 
+    {
+        lacuna[cont]= '_';
+        tam = strlen(palavra);    
+    }
+    while (vida > 0)
+    {
+      
+      printf("\n  _______       \n");
+	    printf(" |/      |       vidas: %d\n", vida);
+  	  printf(" |      %c%c%c  \n", (perder>=1?'(':' '), (perder>=1?'_':' '), (perder>=1?')':' '));
+      printf(" |      %c%c%c  \n", (perder>=3?'\\':' '), (perder>=2?'|':' '), (perder>=3?'/': ' '));
+      printf(" |       %c     \n", (perder>=4?'|':' '));
+	    printf(" |      %c %c   \n", (perder>= 5?'/':' '), (perder>=5?'\\':' '));
+  	  printf(" |              \n");
+      printf("Palavra:%s", lacuna);
+      printf("\nDigite uma letra:");
+      scanf("%s", &letra[0]);
+      erros[cont2] = letra[0];
+      cont2++;
+      retorna = 0;
+    
+      printf("\nLetras digitadas: %s", erros);
+      
+      for (cont = 0; cont < strlen(palavra); cont++)
+      {
+            if(letra[0] == palavra[cont]){
+              lacuna[cont] = palavra[cont];
+              retorna++;
+              pontos++;
+            
+          }
+      }
+      if (retorna == 0)
+      {
+        vida--;
+        
+        if (vida ==0)
+        {
+         
+            printf("\nErros: %d", perder+1);
+            printf("\n  _______       \n");
+            printf(" |/      |       vidas: %d\n", vida);
+        	printf(" |      %c%c%c  \n", (perder>=1?'(':' '), (perder>=1?'_':' '), (perder>=1?')':' '));
+            printf(" |      %c%c%c  \n", (perder>=3?'\\':' '), (perder>=2?'|':' '), (perder>=3?'/': ' '));
+            printf(" |       %c     \n", (perder>=4?'|':' '));
+            printf(" |      %c %c   \n", (perder>= 4?'/':' '), (perder>=4?'\\':' '));
+        	printf(" |              \n");
+        	printf("Palavra:%s", lacuna);
+            printf("\nvocê perdeu.\n");
+            printf("A palavra certa era %s", palavra);
+            printf("\n\n-----------Fim-------------");
+            break;
+        }
+        else
+        {
+            printf("\nvoce errou uma letra.");
+            perder++;
+            printf("\nErros: %d", perder);
+        }
+      }
+
+      else
+        {
+          if (pontos==tam)
+          {
+            printf("\nVocê acertou a palavra:%s", palavra);
+        	printf("\nParabéns, você ganhou!\n");
+            printf("Erros: %d\n\n", perder);
+    		printf("       ___________      \n");
+	    	printf("      '._==_==_=_.'     \n");
+		    printf("      .-\\:      /-.    \n");
+		    printf("     | (|:.     |) |    \n");
+		    printf("      '-|:.     |-'     \n");
+	    	printf("        \\::.    /      \n");
+		    printf("         '::. .'        \n");
+		    printf("           ) (          \n");
+		    printf("         _.' '._        \n");
+		    printf("        '-------'       \n");
+		    printf("        ---WIN---       \n");
+		    printf("\n\n-----------Fim-------------");
+		    return 0;
+          }
+          else
+          {
+              printf("\nVocê acertou uma letra parabéns");
+              printf("\nErros: %d", perder);
+          }
+          
+        }
+      
+    }
+}
+
+void bpalavras(){
+    int cont, i = 1;
+     char banco[16][20]={"casa","azul", "amarelo", "verde", "vermelho", "preto", "rosa", "cachoro ", "gato", "sapato", "rua", "rei", "rainha","roupas", "tecidos"};   
+     printf("---------------------Banco de Palavras--------------------\n");
+     for (cont = 0; cont<15;cont++){
+         printf("%d-%s\n", i, banco[cont]);
+         i++;
+     }
+}
+void sobre(){
+    printf("\n*************************************************************************************\n");
+    printf(" O jogo da forca é um jogo elaborado por @daniel.oliveira.silva desenvolvimento como\n");
+    printf(" requisito parcial do 1ºsemestre do Curso Ciencia da Computação. O jogo conta com um\n"); 
+    printf(" pequno banco de dados de palavras, afim de testar o conhecimento do jogador.\n\n"); 
+    printf("*************************************************************************************\n");
+}
+void ajuda(){
+    printf("\n---------------------Ajuda------------------------\n\n");
+    printf("\n   1-Para começar a jogar selecione 1-New Game.\n");
+    printf("\n   2-Selecione o modo de categoria desejado.\n");
+    printf("\n---------------------Regras-----------------------\n\n");
+    printf("    a.Você tem 5 chances para cada palavra.\n");
+    printf("    b.Digite uma letra por vez.\n");
+    printf("    c.O jogo só será finalizado, apos sele-\n    cionar a opção 'Sair'.\n");
+    printf("\n-------------------Obrigado-----------------------\n\n");
+}
+int main()
+{
+ 
+    int op, cat;
+    for ( ; ; )
+    {
+        printf("\n---------------Welcome to the hangman game---------------\n");
+        printf("Selecione uma das opções:\n1-Novo Jogo\n2-Mostrar banco de palavras\n3-Sobre\n4-ajuda\n5-Sair\n*Digite:");
+        scanf("%d", &op);
+        switch (op){
+            case 1:
+                jogoforca();
+            break;
+            case 2:
+               bpalavras();
+            break;
+            case 3:
+                sobre();
+            break;
+            case 4:
+                ajuda();
+            break;
+            case 5:
+            exit(0);
+        }  
+    } 
+}
